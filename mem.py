@@ -5,6 +5,7 @@ class Fragment:
     """
     Implementation of memory fragment
     """
+
     def __init__(self, buffer, start, end):
         self.buffer = buffer
         self.start = start
@@ -29,7 +30,8 @@ class Fragment:
     def move(self, index):
         diff = self.start - index
         assert diff >= 0
-        self.buffer.buffer[self.start - diff:self.end - diff] = self.buffer.buffer[self.start:self.end]
+        fragment_data = self.buffer.buffer[self.start:self.end]
+        self.buffer.buffer[self.start - diff:self.end - diff] = fragment_data
         self.start -= diff
         self.end -= diff
 
@@ -41,6 +43,7 @@ class Buffer:
     """
     Implementation of memory buffer
     """
+
     def __init__(self, size):
         self.cursor = 0
         self.free_cells = size
@@ -78,6 +81,7 @@ class MemoryManager:
     """
     Implementation of memory manager
     """
+
     def __init__(self, size):
         self._buffer = Buffer(size)
 
