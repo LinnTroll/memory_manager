@@ -19,3 +19,25 @@ In the future, to optimize this algorithm, we can take:
   - Start defragmentation only if there is not enough free space at the end of the buffer
   - Implement an algorithm that controls free spaces between occupied areas of the buffer, and allows to allocate there
     new areas of memory, if they fit there
+
+## How to use:
+
+```
+from mem import MemoryManager
+
+mm = MemoryManager(10)
+fragment1 = mm.alloc(8)
+fragment2 = mm.alloc(2)
+
+fragment1.init('a')
+fragment2.init('b')
+
+print(fragment1)
+print(fragment2)
+```
+
+## How to run tests:
+
+```
+python test.py
+```
