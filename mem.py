@@ -2,6 +2,9 @@ from exceptions import CannotAllocateMemoryException
 
 
 class Fragment:
+    """
+    Implementation of memory fragment
+    """
     def __init__(self, buffer, start, end):
         self.buffer = buffer
         self.start = start
@@ -35,6 +38,9 @@ class Fragment:
 
 
 class Buffer:
+    """
+    Implementation of memory buffer
+    """
     def __init__(self, size):
         self.cursor = 0
         self.free_cells = size
@@ -69,6 +75,9 @@ class Buffer:
 
 
 class MemoryManager:
+    """
+    Implementation of memory manager
+    """
     def __init__(self, size):
         self._buffer = Buffer(size)
 
